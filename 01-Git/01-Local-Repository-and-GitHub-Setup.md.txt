@@ -1,0 +1,135 @@
+# Local Repository → GitHub (Quick Guide)
+
+## 1. Create Project Folder
+
+```bash
+mkdir NetworkAutomation
+cd NetworkAutomation
+```
+
+## 2. Initialize Git
+
+```bash
+git init
+```
+
+Creates a local Git repository (`.git`).
+
+---
+
+## 3. Check Status
+
+```bash
+git status
+```
+
+Shows modified/untracked files.
+
+---
+
+## 4. Stage Files
+
+```bash
+git add .
+```
+
+Adds all files to the staging area.
+
+---
+
+## 5. Commit
+
+```bash
+git commit -m "Initial commit"
+```
+
+Saves a snapshot of your changes.
+
+---
+
+## 6. Add GitHub Remote
+
+```bash
+git remote add origin https://github.com/<username>/<repo>.git
+```
+
+Connects the local repository to GitHub.
+
+Verify:
+
+```bash
+git remote -v
+```
+
+---
+
+## 7. Rename Branch
+
+```bash
+git branch -M main
+```
+
+Sets the default branch to `main`.
+
+---
+
+## 8. Push to GitHub
+
+```bash
+git push -u origin main
+```
+
+Uploads the project to GitHub.
+
+---
+
+## Verify
+
+```bash
+git log --oneline
+git status
+git branch
+git remote -v
+```
+
+---
+
+## Daily Workflow
+
+```bash
+git status
+git add .
+git commit -m "Your message"
+git push
+```
+
+---
+
+## Common Errors
+
+**No space after `-u`**
+
+❌
+
+```bash
+git push - u origin main
+```
+
+✅
+
+```bash
+git push -u origin main
+```
+
+**No commits yet**
+
+```bash
+git add .
+git commit -m "Initial commit"
+```
+
+then
+
+```bash
+git push -u origin main
+```
