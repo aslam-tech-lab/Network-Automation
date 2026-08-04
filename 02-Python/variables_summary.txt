@@ -1,0 +1,465 @@
+============================================================
+PYTHON FOR NETWORK AUTOMATION
+DAY 05 - VARIABLES (REVISION NOTES)
+Version : 1.0
+============================================================
+
+1. WHAT IS A VARIABLE?
+----------------------
+A variable is a meaningful name (label) that refers to an object stored in memory.
+
+Example:
+device_hostname = "Leaf01"
+
+Variable -> device_hostname
+Object   -> "Leaf01"
+
+Remember:
+Variable is NOT the data.
+Variable points to the data (object).
+
+============================================================
+
+2. WHAT IS AN OBJECT?
+---------------------
+Everything in Python is an object.
+
+Examples:
+String
+Integer
+Float
+Boolean
+List
+Dictionary
+Function
+Class
+
+Every object has:
+1. Value
+2. Type
+3. Identity
+
+Example:
+
+device_hostname = "Leaf01"
+
+Object
+------
+Value    : Leaf01
+Type     : str
+Identity : id()
+
+============================================================
+
+3. VARIABLES VS OBJECTS
+-----------------------
+
+device_hostname = "Leaf01"
+
+Variable
+   │
+   ▼
+Object ("Leaf01")
+
+Variable = Label
+
+Object = Actual data stored in memory
+
+============================================================
+
+4. MEMORY CONCEPT
+-----------------
+
+RAM
+
++---------------------------+
+| Object : "Leaf01"         |
+| Object : 100              |
+| Object : True             |
++---------------------------+
+
+Variables point to these objects.
+
+============================================================
+
+5. ASSIGNMENT OPERATOR (=)
+--------------------------
+
+Example:
+
+hostname = "Leaf01"
+
+Read as:
+
+Assign "Leaf01" to hostname.
+
+Do NOT read it as
+
+hostname equals Leaf01
+
+Assignment (=)
+
+Comparison (==)
+
+They are different.
+
+============================================================
+
+6. type()
+---------
+
+Returns object's data type.
+
+Example:
+
+hostname = "Leaf01"
+
+print(type(hostname))
+
+Output
+
+<class 'str'>
+
+Examples
+
+type(100)
+
+<class 'int'>
+
+type(True)
+
+<class 'bool'>
+
+============================================================
+
+7. id()
+-------
+
+Returns object's identity.
+
+Example
+
+hostname = "Leaf01"
+
+print(id(hostname))
+
+Output
+
+140512345678912
+
+Do not memorize the number.
+
+Just know every object has a unique identity.
+
+============================================================
+
+8. DYNAMIC TYPING
+-----------------
+
+Python variables can refer to different object types.
+
+Example
+
+device = "Leaf01"
+
+device = 100
+
+device = True
+
+Same variable
+
+Different object
+
+Different type
+
+============================================================
+
+9. REASSIGNMENT
+---------------
+
+Before
+
+hostname
+
+↓
+
+"Leaf01"
+
+After
+
+hostname = "Leaf02"
+
+hostname
+
+↓
+
+"Leaf02"
+
+Variable now points to another object.
+
+============================================================
+
+10. MULTIPLE ASSIGNMENT
+-----------------------
+
+hostname, ip, vendor = (
+    "Leaf01",
+    "10.10.10.11",
+    "Cisco"
+)
+
+============================================================
+
+11. CONSTANTS
+-------------
+
+Python has no real constants.
+
+Convention:
+
+SSH_PORT = 22
+
+DEFAULT_USERNAME = "admin"
+
+MAX_RETRIES = 3
+
+Uppercase indicates
+"This value should not change."
+
+============================================================
+
+12. VARIABLE NAMING RULES
+-------------------------
+
+Allowed
+
+device_hostname
+
+management_ip
+
+loopback_ip
+
+bgp_asn
+
+Not Allowed
+
+device hostname
+
+1hostname
+
+switch-name
+
+============================================================
+
+13. GOOD VARIABLE NAMES
+-----------------------
+
+Good
+
+device_hostname
+
+management_ip
+
+interface_status
+
+vlan_id
+
+device_vendor
+
+Bad
+
+a
+
+x
+
+abc
+
+test
+
+============================================================
+
+14. PEP8 NAMING
+---------------
+
+Variables
+
+snake_case
+
+Functions
+
+snake_case
+
+Constants
+
+UPPER_CASE
+
+Classes
+
+PascalCase
+
+============================================================
+
+15. RESERVED KEYWORDS
+---------------------
+
+Invalid
+
+class = "Cisco"
+
+for = 100
+
+while = 10
+
+Check keywords
+
+import keyword
+
+print(keyword.kwlist)
+
+============================================================
+
+16. BUILT-IN NAMES
+------------------
+
+Avoid
+
+list = []
+
+str = "Cisco"
+
+int = 100
+
+Reason
+
+They hide Python built-in functions.
+
+============================================================
+
+17. CASE SENSITIVE
+------------------
+
+hostname
+
+Hostname
+
+HOSTNAME
+
+These are three different variables.
+
+============================================================
+
+18. DELETE VARIABLE
+-------------------
+
+del hostname
+
+After deletion
+
+print(hostname)
+
+NameError
+
+============================================================
+
+19. NETWORK AUTOMATION EXAMPLE
+------------------------------
+
+device_hostname = "Leaf01"
+
+management_ip = "10.10.10.11"
+
+vendor = "Cisco"
+
+platform = "Nexus9000"
+
+os_version = "10.3(5)"
+
+loopback_ip = "192.168.100.1"
+
+vlan_id = 100
+
+bgp_asn = 65001
+
+============================================================
+
+20. BEST PRACTICES
+------------------
+
+✓ Use meaningful names.
+
+✓ Follow snake_case.
+
+✓ Avoid one-letter variables.
+
+✓ Avoid hardcoding values repeatedly.
+
+✓ Keep naming consistent.
+
+============================================================
+
+21. COMMON MISTAKES
+-------------------
+
+✗ Using = instead of ==
+
+✗ Poor variable names
+
+✗ Starting variable with a number
+
+✗ Using spaces
+
+✗ Overwriting built-in names
+
+✗ Changing variable type unnecessarily
+
+============================================================
+
+22. INTERVIEW QUESTIONS
+-----------------------
+
+1. What is a variable?
+
+2. What is an object?
+
+3. Difference between variable and object?
+
+4. What does type() do?
+
+5. What does id() do?
+
+6. What is dynamic typing?
+
+7. Explain assignment operator.
+
+8. Why are meaningful variable names important?
+
+9. Why is Python called dynamically typed?
+
+10. Explain variable reassignment.
+
+============================================================
+
+23. KEY TAKEAWAYS
+-----------------
+
+✓ Variable is a label.
+
+✓ Object is actual data in memory.
+
+✓ Everything in Python is an object.
+
+✓ Variables point to objects.
+
+✓ Objects have Value, Type and Identity.
+
+✓ Use type() to know object's type.
+
+✓ Use id() to know object's identity.
+
+✓ Use meaningful variable names.
+
+✓ Follow PEP8 naming conventions.
+
+============================================================
+END OF DAY 05
+============================================================

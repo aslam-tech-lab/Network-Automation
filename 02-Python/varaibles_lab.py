@@ -18,3 +18,12 @@ print("IP address = ", device_management_ip)
 print("Vlan number = ", vlan_id)
 print("ASN = ", bgp_ASN_ID)
 
+
+interace_status = True
+vlan_num = 300
+print(id(bgp_ASN_ID))
+print(id(vlan_id))
+print(vlan_num)
+print(type(vlan_num))
+print(type(device_management_ip))
+print(type(interace_status))
