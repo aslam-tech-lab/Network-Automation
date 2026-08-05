@@ -1,0 +1,617 @@
+============================================================
+PYTHON FOR NETWORK AUTOMATION
+DAY 06 - DATA TYPES (SUMMARY NOTES)
+Version : 1.0
+============================================================
+
+1. WHAT IS DATA?
+----------------
+
+Data is information that a computer stores, processes, or transfers.
+
+Network Examples
+
+Hostname
+Management IP
+Interface Name
+VLAN ID
+CPU Usage
+Memory Usage
+BGP ASN
+Serial Number
+
+Everything collected from a network device is data.
+
+============================================================
+
+2. WHY DO WE NEED DATA TYPES?
+-----------------------------
+
+Python must know what kind of data it is working with.
+
+Example
+
+100
+
+is a number.
+
+"100"
+
+is text.
+
+Without data types, Python would not know whether to
+perform arithmetic or text operations.
+
+============================================================
+
+3. WHAT IS A DATA TYPE?
+-----------------------
+
+Definition
+
+A data type tells Python what kind of data an object
+contains and what operations can be performed on it.
+
+Remember
+
+Data Type belongs to the OBJECT,
+not the variable.
+
+============================================================
+
+4. VARIABLES, OBJECTS AND DATA TYPES
+------------------------------------
+
+Variable
+    │
+    ▼
+Object
+    │
+    ▼
+Data Type
+
+Example
+
+hostname = "Leaf01"
+
+Variable
+
+hostname
+
+↓
+
+Object
+
+"Leaf01"
+
+↓
+
+Type
+
+str
+
+============================================================
+
+5. PRIMITIVE DATA TYPES
+-----------------------
+
+Python provides five basic data types.
+
+------------------------------------------------------------
+int
+------------------------------------------------------------
+
+Stores whole numbers.
+
+Examples
+
+vlan_id = 100
+
+bgp_asn = 65001
+
+ssh_port = 22
+
+retry_count = 3
+
+Network Use
+
+VLAN IDs
+
+BGP ASN
+
+Port Numbers
+
+Counters
+
+------------------------------------------------------------
+float
+------------------------------------------------------------
+
+Stores decimal values.
+
+Examples
+
+cpu_usage = 42.7
+
+memory_usage = 78.4
+
+temperature = 39.5
+
+Network Use
+
+CPU Utilization
+
+Memory Usage
+
+Temperature
+
+Bandwidth Utilization
+
+------------------------------------------------------------
+bool
+------------------------------------------------------------
+
+Only two values
+
+True
+
+False
+
+Examples
+
+interface_up = True
+
+bgp_established = False
+
+ssh_enabled = True
+
+Network Use
+
+Interface Status
+
+Ping Success
+
+Neighbor Status
+
+Service Running
+
+------------------------------------------------------------
+str
+------------------------------------------------------------
+
+Stores text.
+
+Examples
+
+hostname = "Leaf01"
+
+vendor = "Cisco"
+
+interface = "Ethernet1/1"
+
+management_ip = "10.10.10.11"
+
+Network Use
+
+Hostnames
+
+IP Addresses
+
+Interface Names
+
+Device Models
+
+Serial Numbers
+
+------------------------------------------------------------
+None
+------------------------------------------------------------
+
+Represents
+
+"No Value"
+
+Example
+
+gateway = None
+
+serial_number = None
+
+Difference
+
+None
+
+↓
+
+No value exists.
+
+""
+
+↓
+
+Empty string.
+
+============================================================
+
+6. WHY IS IP ADDRESS A STRING?
+------------------------------
+
+Python does not recognize
+
+192.168.10.11
+
+as an IP address.
+
+It interprets dots as decimal separators.
+
+Therefore
+
+management_ip = "192.168.10.11"
+
+is stored as text.
+
+Later
+
+Python's ipaddress module
+can represent IP addresses as dedicated IP objects.
+
+============================================================
+
+7. COLLECTION DATA TYPES
+------------------------
+
+Collections store multiple values.
+
+Python provides four main collections.
+
+------------------------------------------------------------
+List
+------------------------------------------------------------
+
+Ordered
+
+Mutable
+
+Duplicates Allowed
+
+Example
+
+devices = [
+    "Leaf01",
+    "Leaf02",
+    "Leaf03"
+]
+
+Best For
+
+Device Inventory
+
+------------------------------------------------------------
+Tuple
+------------------------------------------------------------
+
+Ordered
+
+Immutable
+
+Duplicates Allowed
+
+Example
+
+credentials = (
+    "admin",
+    "Cisco123"
+)
+
+Best For
+
+Fixed Values
+
+------------------------------------------------------------
+Dictionary
+------------------------------------------------------------
+
+Key : Value pairs
+
+Example
+
+device = {
+    "hostname":"Leaf01",
+    "ip":"10.10.10.11"
+}
+
+Best For
+
+Device Information
+
+API Responses
+
+JSON Data
+
+Inventory
+
+------------------------------------------------------------
+Set
+------------------------------------------------------------
+
+Unordered
+
+Mutable
+
+Duplicates NOT Allowed
+
+Example
+
+vlans = {
+    100,
+    200,
+    300
+}
+
+Best For
+
+Unique VLANs
+
+Unique Interfaces
+
+Unique IP Addresses
+
+============================================================
+
+8. LIST OF DICTIONARIES
+-----------------------
+
+Wrong
+
+{
+"hostname":"Leaf01",
+"hostname":"Leaf02"
+}
+
+Duplicate keys overwrite previous values.
+
+Correct
+
+[
+ {
+   "hostname":"Leaf01",
+   "ip":"192.168.1.1"
+ },
+ {
+   "hostname":"Leaf02",
+   "ip":"192.168.1.2"
+ }
+]
+
+This is the most common structure in Network Automation.
+
+============================================================
+
+9. TYPE CONVERSION
+------------------
+
+Convert between data types.
+
+Examples
+
+int("100")
+
+float("42.5")
+
+str(100)
+
+bool(1)
+
+Very common when reading
+
+CSV
+
+Excel
+
+REST APIs
+
+JSON
+
+YAML
+
+============================================================
+
+10. type()
+-----------
+
+Returns object's data type.
+
+Example
+
+print(type(hostname))
+
+Output
+
+<class 'str'>
+
+============================================================
+
+11. COMMON NETWORK AUTOMATION DATA TYPES
+----------------------------------------
+
+Hostname
+
+↓
+
+str
+
+Management IP
+
+↓
+
+str
+
+VLAN ID
+
+↓
+
+int
+
+BGP ASN
+
+↓
+
+int
+
+CPU Usage
+
+↓
+
+float
+
+Memory Usage
+
+↓
+
+float
+
+Interface Status
+
+↓
+
+bool
+
+Gateway
+
+↓
+
+None
+
+Inventory
+
+↓
+
+list
+
+Single Device
+
+↓
+
+dict
+
+Unique VLANs
+
+↓
+
+set
+
+============================================================
+
+12. COMMON BEGINNER MISTAKES
+----------------------------
+
+❌ Using duplicate dictionary keys
+
+❌ Storing VLAN IDs as strings
+
+❌ Storing CPU usage as text
+
+❌ Writing
+
+"True"
+
+instead of
+
+True
+
+❌ Writing
+
+"None"
+
+instead of
+
+None
+
+❌ Assuming IP addresses are numbers
+
+============================================================
+
+13. BEST PRACTICES
+------------------
+
+✓ Choose the correct data type.
+
+✓ Store IP addresses as strings.
+
+✓ Store VLAN IDs as integers.
+
+✓ Use dictionaries for device details.
+
+✓ Use lists for inventories.
+
+✓ Use sets when uniqueness matters.
+
+✓ Use None instead of empty strings for unknown values.
+
+✓ Check data types using type() while learning.
+
+============================================================
+
+14. INTERVIEW QUESTIONS
+-----------------------
+
+1. What is data?
+
+2. What is a data type?
+
+3. Why do programming languages need data types?
+
+4. Explain primitive data types.
+
+5. Explain collection data types.
+
+6. Difference between int and float.
+
+7. Difference between string and integer.
+
+8. Why is an IP address stored as a string?
+
+9. What is None?
+
+10. Difference between None and "".
+
+11. What is a dictionary?
+
+12. Why can't dictionaries have duplicate keys?
+
+13. Why do APIs use dictionaries?
+
+14. Difference between list and tuple.
+
+15. Why use a set?
+
+16. What does type() return?
+
+17. Explain list of dictionaries.
+
+============================================================
+
+15. KEY TAKEAWAYS
+-----------------
+
+✓ Data is information.
+
+✓ Data types define how Python stores and processes data.
+
+✓ Primitive types store one value.
+
+✓ Collection types store multiple values.
+
+✓ Everything in Python is an object.
+
+✓ Variables point to objects.
+
+✓ Dictionaries cannot have duplicate keys.
+
+✓ A list of dictionaries is the most common data structure in network automation.
+
+✓ Selecting the correct data type makes automation scripts reliable and easier to maintain.
+
+============================================================
+END OF DAY 06
+============================================================
