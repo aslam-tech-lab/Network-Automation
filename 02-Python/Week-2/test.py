@@ -8,3 +8,12 @@ for i in interface:
     print(admin_status)
     print(link_status)
     print(mtu_size)
+
+
+cpu_usage = 90
+memory_usage = 70
+
+if cpu_usage > 85 and memory_usage > 85:
+    print(" cpu is in high utilization")
+else:
+    print("cpu is in normal utilization")
