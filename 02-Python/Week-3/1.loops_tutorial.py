@@ -127,3 +127,4 @@ for device, details in inventory.items():
     for key, value in details.items():
         if key == "vendor" and value == "Cisco":
             print(device)
+
