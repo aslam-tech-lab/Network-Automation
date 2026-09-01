@@ -152,6 +152,22 @@ def get_device_info(devices, hostname):
             return dev["hostname"],dev["vendor"]
 result=get_device_info(devices,"Leaf03")
 print(result)
-
+print()
+## nested dictionary
+device = {
+    "hostname": "Leaf01",
+    "management": {
+        "ip": "10.10.10.11",
+        "vrf": "MGMT"
+    },
+    "hardware": {
+        "vendor": "Cisco",
+        "platform": "Nexus9000"
+    }
+}
+def check_device(device):
+    return f'{device["hostname"]} : {device["management"]["ip"]} : {device["hardware"]["vendor"]}'
+result=check_device(device)
+print(result) 
 
 
